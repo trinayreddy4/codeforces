@@ -15,30 +15,39 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
-	
-	in>>n>>t;
-	
-	if(t!=10)
+	int t;
+	cin>>t;
+	while(t--)
 	{
-		for(int i=0;i<n;i++)
+		int n;
+		in>>n;
+		
+		string s=to_string(n);
+		int m=1;
+		bool flag=true;
+		while(m<=10)
 		{
-			ou<<t;
-		}
-	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
+			if(m&1 && n%3!=0)
 			{
-				ou<<0;
+				n++;
 			}
+			else
+			{
+				n--;
+			}
+			
+			if(n%3==0)
+			{
+				ou<<"First"<<nl;
+				flag=false;
+				break;
+			}
+			m++;
+		}
+		
+		if(flag)
+		{
+			ou<<"Second"<<nl;
 		}
 	}
 }

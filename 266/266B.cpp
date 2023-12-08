@@ -16,31 +16,24 @@ int main()
 {
     fastread();
 	int n,t;
-	
 	in>>n>>t;
 	
-	if(t!=10)
+	string s;
+	in>>s;
+	
+	while(t--)
 	{
 		for(int i=0;i<n;i++)
 		{
-			ou<<t;
-		}
-	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
+			if(s[i]=='B'&&s[i+1]=='G')
 			{
-				ou<<0;
+				swap(s[i],s[i+1]);
+				i++;
 			}
 		}
 	}
+	ou<<s<<nl;
+	
 }
 
 

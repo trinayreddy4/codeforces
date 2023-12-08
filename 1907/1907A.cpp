@@ -15,31 +15,36 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
-	
-	in>>n>>t;
-	
-	if(t!=10)
+	int t;
+	cin>>t;
+	while(t--)
 	{
-		for(int i=0;i<n;i++)
+		string s;
+		in>>s;
+		vs a;
+		char teee=s[0];
+		int val=(int)s[1]-'0';
+		int temp=val;
+		int j=1;
+		for(auto i='a';i<='h';i++)
 		{
-			ou<<t;
+				if(i!=teee)
+				{
+				string sr=i+to_string(val);
+				a.push_back(sr);
+				}
 		}
-	}
-	else
-	{
-		if(n==1)
+		for(auto i=1;i<=8;i++)
 		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
+			if(i!=val)
 			{
-				ou<<0;
+				string sr=teee+to_string(i);
+				a.push_back(sr);
 			}
 		}
+		for(auto i:a)
+		ou<<i<<nl;
+		
 	}
 }
 

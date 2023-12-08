@@ -15,31 +15,39 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
-	
-	in>>n>>t;
-	
-	if(t!=10)
+	int t;
+	cin>>t;
+	while(t--)
 	{
-		for(int i=0;i<n;i++)
+		string s;
+		in>>s;
+		string temp="1234567890";
+		//1010
+		int cnt=0,j=0,i=0;
+		while(i<s.length())
 		{
-			ou<<t;
-		}
-	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
+			if(s[i]==temp[j])
 			{
-				ou<<0;
+				cnt++;
+				i++;
 			}
+			else
+			{
+				auto it=find(temp.begin(),temp.end(),s[i]);
+				if(j<it-temp.begin())
+				{
+					cnt+=it-temp.begin()-j;
+				}
+				else
+				{
+					cnt+=j-(it-temp.begin());
+				}
+				j=it-temp.begin();
+			}
+			
 		}
+		
+		ou<<cnt<<nl;
 	}
 }
 

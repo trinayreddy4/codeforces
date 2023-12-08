@@ -15,31 +15,46 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
-	
-	in>>n>>t;
-	
-	if(t!=10)
+	int t;
+	cin>>t;
+	while(t--)
 	{
-		for(int i=0;i<n;i++)
+		int n;
+		in>>n;
+		
+		vi a(n);
+		map<int,int>mp;
+		for(auto &i:a)
 		{
-			ou<<t;
+			in>>i;
+			mp[i]++;
 		}
-	}
-	else
-	{
-		if(n==1)
+		
+		if(n==2)
 		{
-			ou<<-1<<nl;
+	ou<<"Yes"<<nl;
+		continue;
+	}	
+		if(mp.size()>=3)
+		{
+			ou<<"No"<<nl;
+			continue;
 		}
+		
+		vi te;
+		for(auto i:mp)
+		{
+			te.push_back(i.second);
+		}
+		
+		
+		if(abs(te[0]-te[1])<=1||te.size()==1)
+		{
+			ou<<"Yes"<<nl;
+			continue;
+		}	
 		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
-			{
-				ou<<0;
-			}
-		}
+		ou<<"No"<<nl;
 	}
 }
 

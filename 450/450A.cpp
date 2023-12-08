@@ -15,32 +15,25 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
+	int n,m;
+	in>>n>>m;
 	
-	in>>n>>t;
+	vi a(n);
 	
-	if(t!=10)
+	for(auto &i:a)
 	{
-		for(int i=0;i<n;i++)
+		in>>i;
+	}
+	int ind=-1,maxc=-1;
+	for(int i=0;i<n;i++)
+	{
+		if(ceil(a[i]/m)>maxc)
 		{
-			ou<<t;
+			maxc=ceil(a[i]/m);
+			ind=i+1;
 		}
 	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
-			{
-				ou<<0;
-			}
-		}
-	}
+	ou<<ind<<nl;
 }
 
 

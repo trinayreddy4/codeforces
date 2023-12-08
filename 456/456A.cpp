@@ -15,32 +15,35 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
+	int n;
+	in>>n;
 	
-	in>>n>>t;
+	vector<pair<int,int>>a;
 	
-	if(t!=10)
+	for(int i=0;i<n;i++)
 	{
-		for(int i=0;i<n;i++)
-		{
-			ou<<t;
-		}
+		int t,as;
+		in>>t>>as;
+		
+		a.push_back({t,as});
 	}
-	else
+	
+	sort(a.begin(),a.end());
+	
+	for(int i=0;i<n-1;i++)
 	{
-		if(n==1)
+		if(a[i].first<a[i+1].first)
 		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
+			if(a[i].second>a[i+1].second)
 			{
-				ou<<0;
+				ou<<"Happy Alex"<<nl;
+				return 0;
 			}
 		}
+		
 	}
+	ou<<"Poor Alex"<<nl;
+			
 }
 
 

@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<numeric>
 #define nl endl
 #define ou cout
 #define in cin
@@ -15,29 +16,46 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
-	
-	in>>n>>t;
-	
-	if(t!=10)
+	int t;
+	cin>>t;
+	while(t--)
 	{
-		for(int i=0;i<n;i++)
+		string s,t;
+		in>>s;
+		in>>t;
+		
+		int l=lcm(s.length(),t.length());
+		
+		if(s.length()<t.length())
 		{
-			ou<<t;
-		}
-	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
+			if(t.find(s)==string::npos)
+			{
+				ou<<-1<<nl;
+				continue;
+			}
+			else
+			{
+				for(int i=0;i<l;i++)
+				{
+					ou<<s;
+				}
+				ou<<nl;
+			}
 		}
 		else
 		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
+			if(s.find(t)==string::npos)
 			{
-				ou<<0;
+				ou<<-1<<nl;
+				continue;
+			}
+			else
+			{
+				for(int i=0;i<l;i++)
+				{
+					ou<<t;
+				}
+				ou<<nl;
 			}
 		}
 	}

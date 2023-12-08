@@ -15,32 +15,18 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
-	
-	in>>n>>t;
-	
-	if(t!=10)
-	{
-		for(int i=0;i<n;i++)
-		{
-			ou<<t;
-		}
-	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
-			{
-				ou<<0;
-			}
-		}
-	}
+	  int m,n,a,b;
+    cin>>m>>n;
+    a=m*n;
+    if(m>n){ b=a/m;} else b=a/n;
+
+   // if(n==1){ cout<<"Akshat"; }
+     if(b%2==0){
+        cout<<"Malvika";
+    }
+    else
+        cout<<"Akshat";
+	return 0;
 }
 
 

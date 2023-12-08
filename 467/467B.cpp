@@ -15,32 +15,35 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
+	int n,m,k;
+	in>>n>>m>>k;
 	
-	in>>n>>t;
+	vi p(m+1);
 	
-	if(t!=10)
+	for(auto &i:p)
 	{
-		for(int i=0;i<n;i++)
-		{
-			ou<<t;
-		}
+		in>>i;
 	}
-	else
+	
+	int ans=0;
+	bitset<255>a(p[m]);
+	for(int i=0;i<m;i++)
 	{
-		if(n==1)
+		bitset<255>te(p[i]);
+		
+		int c=0;
+		for(int i=0;i<255;i++)
 		{
-			ou<<-1<<nl;
+			if(a[i]!=te[i])
+			c++;
 		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
-			{
-				ou<<0;
-			}
-		}
+		
+		if(c<=k)
+		ans++;
 	}
+	ou<<ans<<nl;
+	
+//	ou<<ans<<nl;
 }
 
 

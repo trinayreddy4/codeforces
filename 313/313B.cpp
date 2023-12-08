@@ -15,32 +15,26 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
-	
-	in>>n>>t;
-	
-	if(t!=10)
-	{
-		for(int i=0;i<n;i++)
-		{
-			ou<<t;
-		}
-	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
-			{
-				ou<<0;
-			}
-		}
-	}
+	 int m,l,r,cnt=0;
+
+    int dp[100005];
+    string s;
+
+    cin>>s>>m;
+
+    for(int i=1;i<s.size();i++){
+
+        if(s[i]==s[i-1])
+            cnt++;
+
+        dp[i]= cnt;
+
+    }
+
+    while(m--){
+        cin>>l>>r;
+        cout<<dp[r-1]-dp[l-1]<<endl;
+    }
 }
 
 

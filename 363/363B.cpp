@@ -15,32 +15,36 @@ typedef vector<string> vs;
 int main()
 {
     fastread();
-	int n,t;
+	int n,k;
+	in>>n>>k;
 	
-	in>>n>>t;
+	vi h(n);
 	
-	if(t!=10)
+	for(auto &i:h)
 	{
-		for(int i=0;i<n;i++)
+		in>>i;
+	}
+	int sum=0;
+	for(int i=0;i<k;i++)
+	{
+		sum+=h[i];
+	}
+	int ans=1;
+	int j=0;
+	int tmp=sum;
+	for(int i=k;i<n;i++)
+	{
+		sum+=h[i];
+		sum-=h[j++];
+		
+		if(tmp>sum)
 		{
-			ou<<t;
+			tmp=sum;
+//			ou<<tmp<<" "<<sum<<nl;
+		ans=j+1;
 		}
 	}
-	else
-	{
-		if(n==1)
-		{
-			ou<<-1<<nl;
-		}
-		else
-		{
-			ou<<10;
-			for(int i=0;i<n-2;i++)
-			{
-				ou<<0;
-			}
-		}
-	}
+	ou<<ans<<nl;
 }
 
 
