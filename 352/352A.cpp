@@ -6,39 +6,55 @@
 #define yes ou<<"YES"<<nl;
 #define no ou<<"NO"<<nl;
 #define all(arr) arr.begin(),arr.end()
+#define forin(a) for(auto &i:a)in>>i;
 using ll=long long;
 using lli=long long int;
 using namespace std;
 typedef vector<int> vi;
 typedef vector<float> vf;
 typedef vector<string> vs;
-long gcd(long a, long b)
-{
-	return (b == 0) ? a : gcd(b, a % b);
-}
 int main()
 {
     fastread();
-	int ts;
-	cin>>ts;
-	while(ts--)
+	int n;
+	in>>n;
+	
+	vi a(n);
+	
+	forin(a)
+	
+	int z=0;
+	int f=0;
+	
+	for(auto i:a)
 	{
-		  string s, t; 
-		  in >> s >> t;
-        long u(s.size()), v(t.size());
-        long lcm = u * v / gcd(u, v);
-        string x(""); 
-		for(long p = 0; p < lcm / u; p++)
+		if(i==0)
 		{
-			x += s;
+			z++;
 		}
-        string y(""); 
-		for(long p = 0; p < lcm / v; p++)
-		{
-			y += t;
-		}
-        ou << (x == y ? x : "-1") << endl;
+		else
+		f++;
 	}
+	
+	if(z==0)
+	{
+		ou<<-1<<nl;
+	}
+	else if(f<9)
+	{
+		ou<<0<<nl;
+	}
+	else
+	{
+		f-=f%9;
+		
+		for(int i=0;i<f;i++)
+		ou<<5;
+		
+		for(int i=0;i<z;i++)
+		ou<<0;
+	}
+	
 }
 
 

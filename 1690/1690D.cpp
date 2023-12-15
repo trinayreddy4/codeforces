@@ -12,32 +12,25 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<float> vf;
 typedef vector<string> vs;
-long gcd(long a, long b)
-{
-	return (b == 0) ? a : gcd(b, a % b);
-}
 int main()
 {
     fastread();
-	int ts;
-	cin>>ts;
-	while(ts--)
+	int t;
+	cin>> t;
+	while(t--)
 	{
-		  string s, t; 
-		  in >> s >> t;
-        long u(s.size()), v(t.size());
-        long lcm = u * v / gcd(u, v);
-        string x(""); 
-		for(long p = 0; p < lcm / u; p++)
-		{
-			x += s;
-		}
-        string y(""); 
-		for(long p = 0; p < lcm / v; p++)
-		{
-			y += t;
-		}
-        ou << (x == y ? x : "-1") << endl;
+		int n, k;
+		in>> n >> k;
+		string s;
+		in >> s;
+		vector<int> w(n + 1);
+        for (int i = 1; i <= n; i++)
+            w[i] = w[i - 1] + int(s[i - 1] == 'W');
+        //0 0 0 1 1 2
+        int result = INT_MAX;
+        for (int i = k; i <= n; i++)
+            result = min(result, w[i] - w[i - k]);
+        cout << result << endl;
 	}
 }
 
